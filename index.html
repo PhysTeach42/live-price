@@ -15,7 +15,7 @@
       var time = 0;
       var price = 0;
       // retreive json time and price information from ComEd
-      const infoFetch = asyinc() => {
+      const infoFetch = async() => {
         const response = await fetch(proxyUrl + targetUrl);
         const infoJson = await response.json();
         return infoJson;
@@ -38,7 +38,7 @@
       
       
     </script>
-    <div>Trial 6</div>
+    <div>Trial 7</div>
     <div>corsproxy.io</div>
   </body>
 </html>
