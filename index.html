@@ -12,17 +12,17 @@
       <h1>JSON Display Example</h1>
     </div>
     <script>
-      var staticUrl = "https://hourlypricing.comed.com/api?type=5minutefeeda";
+      var staticUrl = 'https://hourlypricing.comed.com/api?type=5minutefeeda';
       const proxyUrl = 'https://corsproxy.io/?key=a809c415&url=';
       var hUrl = 'https://cors-proxy.htmldriven.com/?url=https://hourlypricing.comed.com/api?type=5minutefeed';
 
 
-      $.getJSON(proxyUrl + staticUrl, function(data) {
+      $.getJSON('https://corsproxy.io/?key=a809c415&url=https://hourlypricing.comed.com/api?type=5minutefeeda', function(data) {
         console.log(data[0].price)
       });
       
     </script>
-    <div>Trial 4</div>
+    <div>Trial 5</div>
     <div>corsproxy</div>
   </body>
 </html>
