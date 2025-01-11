@@ -8,7 +8,8 @@
     <div>
       <h1>Com Ed Live Price</h1>
     </div>
-    <div id = "info"></div>
+    <div id = "date"></div>
+    <div id = "price"></div>
     <script>
       const proxyUrl = 'https://corsproxy.io/?key=a809c415&url=';
       const targetUrl = 'https://hourlypricing.comed.com/api?type=5minutefeed';
@@ -24,22 +25,24 @@
       // extract most recent time and price from json
       const recent = async() => {
         const data = await infoFetch();
-        time = data[0].millisUTC.toString();
+        time = data[0].millisUTC;
+        let date = new Date(time).toString();
         price = data[0].price;
-        return [time, price];
+        return [date, price];
       }
       // display time and price on webpage
       const disp = async() => {
         const info = await recent();
         console.log(info);
-        document.getElementById("info").innerText = info;
+        document.getElementById("date").innerText = info[0];
+        document.getElementById("price").innerText = info[1];
         
       }
       disp();
       
       
     </script>
-    <div>Trial 11</div>
+    <div>Trial 12</div>
     <div>corsproxy.io</div>
   </body>
 </html>
