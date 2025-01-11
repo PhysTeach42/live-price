@@ -27,7 +27,7 @@
       const recent = async() => {
         const data = await infoFetch();
         time = data[0].millisUTC;
-        let date = new Date(parseInt(time)).toString();
+        let date = new Date(parseInt(time)).toLocaleTimeString();
         price = data[0].price;
         return [date, price];
       }
@@ -43,7 +43,7 @@
       
       
     </script>
-    <div>Trial 19</div>
+    <div>Trial 20</div>
     <div>corsproxy.io</div>
   </body>
 </html>
