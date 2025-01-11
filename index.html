@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-    <!--  https://corsproxy.io/?key=a809c415&url=https://example.com -->
-    <!-- https://code.jquery.com/jquery-3.7.1.js  -->
-    <!-- https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Display Com Ed live price</title>
+   
   </head>
   <body>
     <div>
-      <h1>JSON Display Example</h1>
+      <h1>Com Ed Live Price</h1>
     </div>
+    <div id = "info"></div>
     <script>
-      var staticUrl = 'https://hourlypricing.comed.com/api?type=5minutefeeda';
       const proxyUrl = 'https://corsproxy.io/?key=a809c415&url=';
-      var hUrl = 'https://cors-proxy.htmldriven.com/?url=https://hourlypricing.comed.com/api?type=5minutefeed';
-
-
-      $.getJSON('https://corsproxy.io/?key=a809c415&url=https://hourlypricing.comed.com/api?type=5minutefeeda', function(data) {
-        console.log(data[0].price)
-      });
+      const targetUrl = 'https://hourlypricing.comed.com/api?type=5minutefeed';
+      var time = 0;
+      var price = 0;
+      // retreive json time and price information from ComEd
+      const infoFetch = asyinc() => {
+        const response = await fetch(proxyUrl + targetUrl);
+        const infoJson = await response.json();
+        return infoJson;
+      }
+      // extract most recent time and price from json
+      const recent = async() => {
+        const data = await infoFetch();
+        time = JSON.stringify(data[0].time);
+        price = JSON.stringify(data[0].price);
+        console.log(time, price);
+        return (time, price);
+      }
+      // display time and price on webpage
+      const disp = async() => {
+        const info = await recent();
+        document.getElementById("info").innerText = info;
+        
+      }
+      disp();
+      
       
     </script>
-    <div>Trial 5</div>
-    <div>corsproxy</div>
+    <div>Trial 6</div>
+    <div>corsproxy.io</div>
   </body>
 </html>
