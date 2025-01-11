@@ -10,15 +10,16 @@
     </div>
     <script>
       var staticUrl = "https://hourlypricing.comed.com/api?type=5minutefeeda";
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      const proxyUrl = 'https://corsproxy.io/?key=a809c415&url=';
       var hUrl = 'https://cors-proxy.htmldriven.com/?url=https://hourlypricing.comed.com/api?type=5minutefeed';
 
 
-      $.getJSON(hUrl, function(data) {
+      $.getJSON(proxyUrl + staticUrl, function(data) {
         console.log(data[0].price)
       });
       
     </script>
     <div>Trial 2</div>
+    <div>corsproxy</div>
   </body>
 </html>
