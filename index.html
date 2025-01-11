@@ -23,7 +23,7 @@
       // extract most recent time and price from json
       const recent = async() => {
         const data = await infoFetch();
-        time = JSON.stringify(data[0].time);
+        time = JSON.stringify(data[0].millisUTC);
         price = JSON.stringify(data[0].price);
         console.log(time, price);
         return (time, price);
@@ -38,7 +38,7 @@
       
       
     </script>
-    <div>Trial 7</div>
+    <div>Trial 8</div>
     <div>corsproxy.io</div>
   </body>
 </html>
